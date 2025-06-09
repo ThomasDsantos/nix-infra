@@ -11,14 +11,13 @@
     userEmail = "thomas.dssantos@gmail.com";
     
     signing = {
-      key = "A4407E174038FE38";
+      key = "$(gpg --card-status | grep 'sec#' | sed -E 's/.*([A-F0-9]{16}) .*/\1/')";
       signByDefault = true;
     };
 
 
     extraConfig = {
       core = {
-        sshCommand = "ssh -o 'IdentitiesOnly=yes' -i ~/.ssh/notthebee";
         editor = "vim";
         excludeFile = "~/.gitignore";
       };
